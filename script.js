@@ -1,7 +1,7 @@
 let man;
 let clock;
 let clockScroll = 0;
-let manScroll = 4900;
+let manScroll = 5000;
 function preload() {
   man = loadImage('falling-man.png');
   clock = loadImage('wall-clock.png');
