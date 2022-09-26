@@ -1,7 +1,7 @@
 let img;
 function preload() {
   img = loadImage('falling-man.png');
-}
+};
 
 function setup() {
     createCanvas(700,700);
@@ -9,9 +9,9 @@ function setup() {
     translate(width / 2, height / 2);
     noStroke();
     circle(0,0,10);
-  };
-  
-  function draw() {
+};
+
+function draw() {
     translate(width / 2, height / 2);
     circleOfCircles(15, 0, 10);
     circleOfCircles(35, 5, 20);
@@ -22,15 +22,14 @@ function setup() {
 
     imageMode(CENTER);
     image(img, 0, 0, 100, 100);
+};
+
+function circleOfCircles(r, angle, size){
+  for(let i=0; i<7; i++){
+    let x = r * sin(angle);
+    let y = r * cos(angle);
+    circle(x, y, size);
+    angle = angle + TWO_PI/6;
   };
-  
-  function circleOfCircles(r, angle, size){
-    for(let i=0; i<7; i++){
-      let x = r * sin(angle);
-      let y = r * cos(angle);
-      
-      circle(x, y, size);
-  
-      angle = angle + TWO_PI/6;
-    };
-  };
+};
+
