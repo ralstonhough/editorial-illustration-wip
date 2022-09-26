@@ -1,5 +1,7 @@
 let man;
 let clock;
+let clockScroll = 0;
+let manScroll = 4900;
 function preload() {
   man = loadImage('falling-man.png');
   clock = loadImage('wall-clock.png');
@@ -17,7 +19,7 @@ function draw() {
 
     push();
     background("black");
-    rotate(-millis() / 3000.0);
+    rotate(-clockScroll/100);
     circleOfClocks(15, 0, 10, 10);
     circleOfClocks(35, 5, 20, 20);
     circleOfClocks(65, 10, 30, 30);
@@ -27,7 +29,7 @@ function draw() {
     pop();
 
     imageMode(CENTER);
-    image(man, 0, 0, 100, 100);
+    image(man, 0, 0, manScroll, manScroll);
 };
 
 function circleOfClocks(r, angle, width, height){
@@ -40,3 +42,9 @@ function circleOfClocks(r, angle, width, height){
   };
 };
 
+function mouseWheel(event){
+  print(event.delta);
+  clockScroll += event.delta;
+  manScroll -= (8*event.delta);
+  return false;
+};
