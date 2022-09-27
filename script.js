@@ -20,24 +20,24 @@ function draw() {
     push();
     background("black");
     rotate(-clockScroll/100);
-    circleOfClocks(15, 0, 10, 10);
-    circleOfClocks(35, 5, 20, 20);
-    circleOfClocks(65, 10, 30, 30);
-    circleOfClocks(115, 15, 60, 60);
-    circleOfClocks(210, 20, 120, 120);
-    circleOfClocks(400, 25, 240, 240);
+    circleOfClocks(15, 0, 10);
+    circleOfClocks(35, 5, 20);
+    circleOfClocks(65, 10, 30);
+    circleOfClocks(115, 15, 60);
+    circleOfClocks(210, 20, 120);
+    circleOfClocks(400, 25, 240);
     pop();
 
     imageMode(CENTER);
     image(man, 0, 0, manScroll, manScroll);
 };
 
-function circleOfClocks(r, angle, width, height){
+function circleOfClocks(r, angle, size){
   for(let i=0; i<7; i++){
     let x = r * sin(angle);
     let y = r * cos(angle);
     imageMode(CENTER);
-    image(clock, x, y, width, height);
+    image(clock, x, y, size, size);
     angle = angle + TWO_PI/6;
   };
 };
