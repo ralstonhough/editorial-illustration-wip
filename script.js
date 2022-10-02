@@ -10,7 +10,8 @@ function preload() {
 };
 
 function setup() {
-    createCanvas(700,700);
+    let cnv = createCanvas(700,700);
+    cnv.position(innerWidth/4,0);
     background("black");
     translate(width / 2, height / 2);
     image(clock,0,0,10,10);
@@ -71,19 +72,14 @@ function circleOfClocks(r, angle, size){
 function mouseWheel(event){
   print(event.delta);
   clockScroll += event.delta;
-  manScroll -= (event.delta);
-  if (manScroll > 11 && manScroll < 6500){
+  if (manScroll > 25){
+    manScroll -= (event.delta);
     return false;
   }
-    else if (manScroll < 10){
-      manScroll = 10;
-      clockScroll = 580;
+    else {
+      manScroll = 25;
       return true;
     }
-      else if (manScroll > 6500){
-        manScroll = 6500;
-        return false;
-      }
 };
 
 //Sin-based math for floating animation inspired
