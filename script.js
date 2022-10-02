@@ -1,7 +1,7 @@
 let man;
 let clock;
 let clockScroll = 0;
-let manScroll = 2750;
+let manScroll = 1500;
 let bounceAngle = 0;
 
 function preload() {
@@ -50,8 +50,8 @@ function draw() {
     pop();
     
     push();
-    imageMode(CENTER);
-    rotate(-manScroll/250);
+    imageMode(CORNER);
+    rotate(-manScroll/75);
     image(man, 0, 0, manScroll, manScroll);
     pop();
 
@@ -71,7 +71,7 @@ function circleOfClocks(r, angle, size){
 function mouseWheel(event){
   print(event.delta);
   clockScroll += event.delta;
-  manScroll -= (5*event.delta);
+  manScroll -= (event.delta);
   if (manScroll > 11 && manScroll < 6500){
     return false;
   }
